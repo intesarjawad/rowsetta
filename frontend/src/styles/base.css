@@ -567,6 +567,13 @@ progress:indeterminate {
   }
 }
 
+/* A phone bar has no spare width: the target must stay whole. */
+@media (max-width: 30rem) {
+  .appbar .repo-link {
+    display: none;
+  }
+}
+
 @media (max-width: 62rem) {
   .appbar {
     padding: 0 var(--space-4);
