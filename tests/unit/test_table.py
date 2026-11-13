@@ -71,6 +71,22 @@ def test_supported_separators_and_bom(separator: str, encoding: str) -> None:
     assert [info.kind for info in table.columns] == ["numeric", "categorical"]
 
 
+@pytest.mark.parametrize("separator", [",", ";", "\t"])
+def test_crlf_rows_with_quoted_newlines(separator: str) -> None:
+    data = (
+        f"id{separator}notes\r\n"
+        f'1{separator}"first line\r\nsecond line"\r\n'
+        f"2{separator}plain text\r\n"
+    ).encode()
+
+    table = load_csv(data)
+
+    assert list(table.frame.columns) == ["id", "notes"]
+    assert table.source_rows == 2
+    assert len(table.frame) == 2
+    assert table.frame["notes"].tolist() == ["first line\r\nsecond line", "plain text"]
+
+
 def test_sampling_preserves_original_row_ids_and_source_count() -> None:
     frame = pd.DataFrame({"id": range(MAX_ROWS + 1), "value": range(MAX_ROWS + 1)})
     data = frame.to_csv(index=False).encode()
