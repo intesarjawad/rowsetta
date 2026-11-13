@@ -1,0 +1,8 @@
+$ rowsetta doctor
+torch       <version>
+tabicl      <version>
+device      cpu (ROWSETTA_DEVICE)
+checkpoint  not downloaded
+error: The model file is missing or failed its checksum.
+Next: rowsetta doctor --fix
+[exit 1]

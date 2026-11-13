@@ -1,0 +1,136 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  python:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ["3.13"]
+        include:
+          - os: ubuntu-latest
+            python: "3.14"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          enable-cache: true
+          python-version: ${{ matrix.python }}
+      - run: uv sync --locked
+      # The browser wheel test compiles bytecode with the Pyodide runtime from the frontend packages.
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+        with:
+          package_json_file: frontend/package.json
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 26
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+      - run: pnpm --dir frontend install --frozen-lockfile
+      - run: uv run --locked ruff format --check . && uv run --locked ruff check .
+      - run: uv run --locked pyright
+      - run: uv run --locked pytest -m "not model and not pg"
+
+  postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_PASSWORD: ci
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - run: uv sync --locked
+      - run: uv run --locked pytest -m pg
+        env:
+          ROWSETTA_PG_DSN: postgresql://postgres:ci@localhost:5432/postgres
+
+  pyodide-floor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      # Pyodide 314.0.7 ships Python 3.14.2 and these package floors.
+      - run: uv venv .venv-floor --python 3.14
+      - run: >-
+          uv pip install --python .venv-floor
+          "pandas==3.0.2" "scikit-learn==1.8.0" "numpy==2.4.6" "scipy==1.18.0" "duckdb>=2.0.0"
+          "pydantic==2.12.5" pytest==9.2.0 hypothesis==6.170.14 jsonschema
+      - run: uv pip install --python .venv-floor --no-deps -e .
+      # Server, CLI and build-script tests need packages Pyodide does not ship; conftest skips them here.
+      - run: .venv-floor/bin/python -m pytest tests/unit -m "not native"
+        env:
+          ROWSETTA_PYODIDE_FLOOR: "1"
+
+  dbt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - run: uv sync --locked
+      - run: uv run --locked pytest tests/integration/test_dbt_export.py
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+        with:
+          package_json_file: frontend/package.json
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 26
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - run: uv sync --locked
+      - run: pnpm --dir frontend install --frozen-lockfile
+      # The client types are checked against this served schema.
+      - run: uv run --locked python scripts/export_openapi.py | diff -u frontend/tests/openapi.json -
+      - run: pnpm --dir frontend format:check && pnpm --dir frontend lint
+      - run: pnpm --dir frontend check && pnpm --dir frontend test
+      - run: pnpm --dir frontend exec playwright install --with-deps chromium webkit firefox
+      # The end-to-end server serves the built interface from the package.
+      - run: pnpm --dir frontend build
+      - run: pnpm --dir frontend e2e
+        env:
+          ROWSETTA_TEACHER: fake
+      - run: make browser
+      - run: xvfb-run --auto-servernum pnpm --dir frontend exec playwright test -c playwright.browser.config.ts
+
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - run: >-
+          docker run --rm -v "$PWD:/repo"
+          zricethezav/gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f
+          git /repo --redact --config /repo/.gitleaks.toml
+
+  model-smoke:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/huggingface
+          key: tabicl-v2-20260212-4dcd344
+      - run: uv sync --locked
+      - run: uv run --locked python scripts/fetch_model.py
+      - run: uv run --locked pytest -m model
+        env:
+          ROWSETTA_RUN_MODEL: "1"

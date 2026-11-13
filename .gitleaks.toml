@@ -1,0 +1,10 @@
+title = "Rowsetta (working title) secret scanning"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Public model cache key, not a credential"
+condition = "AND"
+paths = ['''^\.github/workflows/(ci|monthly-smoke)\.yml$''']
+regexes = ['''tabicl-v2-20260212-4dcd344''']

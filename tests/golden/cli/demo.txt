@@ -1,0 +1,4 @@
+$ rowsetta demo penguins --no-browser --port 8799
+Loaded penguins.csv
+Open http://127.0.0.1:8799/?token=<token>
+Press Ctrl+C to stop.

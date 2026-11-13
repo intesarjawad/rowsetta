@@ -1,0 +1,10 @@
+allowBuilds:
+  protobufjs: true
+minimumReleaseAgeExclude:
+  - vite@8.3.6
+patchedDependencies:
+  forecast-web: patches/forecast-web.patch
+# Patched releases that the lint toolchain's own ranges do not reach yet. Drop an entry once its parent allows it.
+overrides:
+  minimatch: ^11.0.8
+  katex: ^0.18.2

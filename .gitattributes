@@ -1,0 +1,4 @@
+# Data files are hashed and compared byte for byte, so checkout must not rewrite line endings.
+*.csv -text
+*.json -text
+*.sql -text

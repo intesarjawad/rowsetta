@@ -1,0 +1,6 @@
+cff-version: 1.2.0
+message: "If you use this project, cite the repository once its public URL is available."
+title: "Rowsetta"
+authors:
+  - name: "Rowsetta contributors"
+license: Apache-2.0

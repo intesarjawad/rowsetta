@@ -1,0 +1,4 @@
+$ rowsetta export absent.rowsetta.json
+error: Could not read `absent.rowsetta.json`: No such file or directory.
+Next: rowsetta export <a saved .rowsetta.json>
+[exit 1]

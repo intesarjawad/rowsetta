@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320">
+<rect width="100%" height="100%" fill="white"/>
+<text x="60" y="20" font-family="sans-serif" font-size="16">penguins: held-out accuracy, 95% bootstrap bands</text>
+<path d="M60 40 V270 H650" fill="none" stroke="black"/>
+<path d="M205.000 42.233 V40.000" stroke="hsl(0.0,60%,35%)"/>
+<polyline points="205.000,41.117" fill="none" stroke="hsl(0.0,60%,35%)"/>
+<text x="660" y="40" font-family="sans-serif" font-size="10" fill="hsl(0.0,60%,35%)">forest/margin</text>
+<path d="M205.000 42.233 V40.000" stroke="hsl(24.0,60%,35%)"/>
+<polyline points="205.000,41.117" fill="none" stroke="hsl(24.0,60%,35%)"/>
+<text x="660" y="54" font-family="sans-serif" font-size="10" fill="hsl(24.0,60%,35%)">forest/ours</text>
+<path d="M205.000 46.699 V42.233" stroke="hsl(48.0,60%,35%)"/>
+<polyline points="205.000,44.466" fill="none" stroke="hsl(48.0,60%,35%)"/>
+<text x="660" y="68" font-family="sans-serif" font-size="10" fill="hsl(48.0,60%,35%)">forest/random</text>
+<path d="M205.000 140.485 V77.961" stroke="hsl(72.0,60%,35%)"/>
+<polyline points="205.000,109.223" fill="none" stroke="hsl(72.0,60%,35%)"/>
+<text x="660" y="82" font-family="sans-serif" font-size="10" fill="hsl(72.0,60%,35%)">label_spreading/margin</text>
+<path d="M205.000 149.417 V89.126" stroke="hsl(96.0,60%,35%)"/>
+<polyline points="205.000,119.272" fill="none" stroke="hsl(96.0,60%,35%)"/>
+<text x="660" y="96" font-family="sans-serif" font-size="10" fill="hsl(96.0,60%,35%)">label_spreading/ours</text>
+<path d="M205.000 69.029 V60.097" stroke="hsl(120.0,60%,35%)"/>
+<polyline points="205.000,64.563" fill="none" stroke="hsl(120.0,60%,35%)"/>
+<text x="660" y="110" font-family="sans-serif" font-size="10" fill="hsl(120.0,60%,35%)">label_spreading/random</text>
+<path d="M205.000 42.233 V40.000" stroke="hsl(144.0,60%,35%)"/>
+<polyline points="205.000,41.117" fill="none" stroke="hsl(144.0,60%,35%)"/>
+<text x="660" y="124" font-family="sans-serif" font-size="10" fill="hsl(144.0,60%,35%)">logistic/margin</text>
+<path d="M205.000 42.233 V40.000" stroke="hsl(168.0,60%,35%)"/>
+<polyline points="205.000,41.117" fill="none" stroke="hsl(168.0,60%,35%)"/>
+<text x="660" y="138" font-family="sans-serif" font-size="10" fill="hsl(168.0,60%,35%)">logistic/ours</text>
+<path d="M205.000 42.233 V40.000" stroke="hsl(192.0,60%,35%)"/>
+<polyline points="205.000,41.117" fill="none" stroke="hsl(192.0,60%,35%)"/>
+<text x="660" y="152" font-family="sans-serif" font-size="10" fill="hsl(192.0,60%,35%)">logistic/random</text>
+<path d="M205.000 42.233 V42.233" stroke="hsl(216.0,60%,35%)"/>
+<polyline points="205.000,42.233" fill="none" stroke="hsl(216.0,60%,35%)"/>
+<text x="660" y="166" font-family="sans-serif" font-size="10" fill="hsl(216.0,60%,35%)">self_training/margin</text>
+<path d="M205.000 42.233 V42.233" stroke="hsl(240.0,60%,35%)"/>
+<polyline points="205.000,42.233" fill="none" stroke="hsl(240.0,60%,35%)"/>
+<text x="660" y="180" font-family="sans-serif" font-size="10" fill="hsl(240.0,60%,35%)">self_training/ours</text>
+<path d="M205.000 44.466 V42.233" stroke="hsl(264.0,60%,35%)"/>
+<polyline points="205.000,43.350" fill="none" stroke="hsl(264.0,60%,35%)"/>
+<text x="660" y="194" font-family="sans-serif" font-size="10" fill="hsl(264.0,60%,35%)">self_training/random</text>
+<path d="M205.000 42.233 V40.000" stroke="hsl(288.0,60%,35%)"/>
+<polyline points="205.000,41.117" fill="none" stroke="hsl(288.0,60%,35%)"/>
+<text x="660" y="208" font-family="sans-serif" font-size="10" fill="hsl(288.0,60%,35%)">tabicl/margin</text>
+<path d="M205.000 42.233 V40.000" stroke="hsl(312.0,60%,35%)"/>
+<polyline points="205.000,41.117" fill="none" stroke="hsl(312.0,60%,35%)"/>
+<text x="660" y="222" font-family="sans-serif" font-size="10" fill="hsl(312.0,60%,35%)">tabicl/ours</text>
+<path d="M205.000 42.233 V42.233" stroke="hsl(336.0,60%,35%)"/>
+<polyline points="205.000,42.233" fill="none" stroke="hsl(336.0,60%,35%)"/>
+<text x="660" y="236" font-family="sans-serif" font-size="10" fill="hsl(336.0,60%,35%)">tabicl/random</text>
+<text x="89.0" y="290" font-size="10">10</text>
+<text x="118.0" y="290" font-size="10">20</text>
+<text x="205.0" y="290" font-size="10">50</text>
+<text x="350.0" y="290" font-size="10">100</text>
+<text x="640.0" y="290" font-size="10">200</text>
+<text x="20" y="270.0" font-size="10">0.0</text>
+<text x="20" y="155.0" font-size="10">0.5</text>
+<text x="20" y="40.0" font-size="10">1.0</text>
+<text x="290" y="310" font-size="12">Human labels</text>
+</svg>

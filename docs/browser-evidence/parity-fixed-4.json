@@ -1,0 +1,50 @@
+{
+  "estimators": 4,
+  "backend": "webgpu",
+  "adapter": {},
+  "results": [
+    {
+      "name": "penguins",
+      "rows": 344,
+      "labels": 20,
+      "maxDifference": 0.0005077918806959403,
+      "stableFlips": 0,
+      "nearTies": 1,
+      "times": [
+        0.2115,
+        0.22269999998807907,
+        0.21919999998807907,
+        0.21110000002384186,
+        0.21689999997615814
+      ],
+      "medianSeconds": 0.21689999997615814
+    },
+    {
+      "name": "bank_2k",
+      "rows": 2000,
+      "labels": 50,
+      "maxDifference": 0.0016818131524314328,
+      "stableFlips": 0,
+      "nearTies": 5,
+      "times": [
+        2.069399999976158,
+        1.784300000011921,
+        1.775800000011921,
+        1.848300000011921,
+        1.8288999999761582
+      ],
+      "medianSeconds": 1.8288999999761582
+    },
+    {
+      "name": "adult_2k",
+      "rows": 2000,
+      "labels": 50,
+      "maxDifference": 0.0013284162669950361,
+      "stableFlips": 0,
+      "nearTies": 7,
+      "times": [],
+      "medianSeconds": null
+    }
+  ],
+  "browserVersion": "157.0.8103.50"
+}

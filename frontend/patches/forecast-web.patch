@@ -1,0 +1,26 @@
+diff --git a/dist/tabular.d.ts b/dist/tabular.d.ts
+index 7f8925961436ed91d9bf71c35af5f418ef334730..45698e2737e867effc1d5c3932d6abbc8b40b553 100644
+--- a/dist/tabular.d.ts
++++ b/dist/tabular.d.ts
+@@ -17,6 +17,8 @@ declare const LIMITS: Readonly<{
+ }>;
+ /** Options shared by every tabular model. */
+ interface TabularOptions {
++    /** Seed for feature and class ensemble permutations. Defaults to 42. */
++    randomState?: number;
+     /** Ensemble members. Defaults to 8, as upstream; 1 is fastest. */
+     nEstimators?: number;
+ }
+diff --git a/dist/tabular.js b/dist/tabular.js
+index 05eb735699fae532e9dae2c1ce6cc221b0fc9640..98b6731d86aee14bc54f68696baa7b629fbe01c2 100644
+--- a/dist/tabular.js
++++ b/dist/tabular.js
+@@ -618,7 +618,7 @@ function createTabular(graph, info, opts = {}) {
+         nFeatures: keep.length,
+         nClasses: classification ? classes.length : void 0,
+         nEstimators,
+-        seed: SEED,
++        seed: opts.randomState ?? SEED,
+         normMethods: NORMS
+       });
+       const pipelines = /* @__PURE__ */ new Map();

@@ -1,0 +1,181 @@
+{
+  "$defs": {
+    "LabelChange": {
+      "additionalProperties": false,
+      "description": "Previous answer needed to undo a label edit after saving and reopening.",
+      "properties": {
+        "kind": {
+          "enum": [
+            "human",
+            "eval"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "row_id": {
+          "minimum": 0,
+          "title": "Row Id",
+          "type": "integer"
+        },
+        "previous": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Previous"
+        }
+      },
+      "required": [
+        "kind",
+        "row_id",
+        "previous"
+      ],
+      "title": "LabelChange",
+      "type": "object"
+    },
+    "SourceRef": {
+      "additionalProperties": false,
+      "description": "Fingerprint of the original bytes and the working sample's source row ids.",
+      "properties": {
+        "file_name": {
+          "minLength": 1,
+          "title": "File Name",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "rows": {
+          "minimum": 0,
+          "title": "Rows",
+          "type": "integer"
+        },
+        "sampled_rows": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sampled Rows"
+        },
+        "sample_seed": {
+          "default": 7,
+          "minimum": 0,
+          "title": "Sample Seed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "file_name",
+        "sha256",
+        "rows"
+      ],
+      "title": "SourceRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Human training labels and a separate, blind random evaluation sample.\n\nCall mutation methods to preserve invariants; returned training labels are a copy.\nServed rows remain reserved for evaluation even when their answer is cleared.",
+  "properties": {
+    "human": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Human",
+      "type": "object"
+    },
+    "eval": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Eval",
+      "type": "object"
+    },
+    "eval_seed": {
+      "default": 7,
+      "minimum": 0,
+      "title": "Eval Seed",
+      "type": "integer"
+    },
+    "eval_served": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Eval Served",
+      "type": "array"
+    },
+    "excluded_columns": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Excluded Columns",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "classes": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 10,
+      "minItems": 2,
+      "title": "Classes",
+      "type": "array"
+    },
+    "threshold": {
+      "default": 0.0,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Threshold",
+      "type": "number"
+    },
+    "target": {
+      "minLength": 1,
+      "title": "Target",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/SourceRef"
+    },
+    "current_eval_row": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Current Eval Row"
+    },
+    "undo_history": {
+      "items": {
+        "$ref": "#/$defs/LabelChange"
+      },
+      "title": "Undo History",
+      "type": "array"
+    }
+  },
+  "required": [
+    "classes",
+    "target",
+    "source"
+  ],
+  "title": "LabelStore",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,4 @@
+$ rowsetta demo --offline --no-browser
+error: The model is not downloaded yet, and --offline skips the download.
+Next: rowsetta doctor --fix while online
+[exit 1]

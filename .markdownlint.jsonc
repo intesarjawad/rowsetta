@@ -1,0 +1,4 @@
+{
+  // Command output, hashes and tables cannot wrap without changing what they show.
+  "MD013": { "code_blocks": false, "tables": false }
+}

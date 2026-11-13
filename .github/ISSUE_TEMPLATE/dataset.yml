@@ -1,0 +1,22 @@
+name: Dataset proposal
+description: Propose a public dataset with a verifiable licence.
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Public source URL
+    validations:
+      required: true
+  - type: input
+    id: licence
+    attributes:
+      label: Licence and attribution source
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Classification task and suitability
+      description: Explain the target, privacy constraints and useful failure cases.
+    validations:
+      required: true

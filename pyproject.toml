@@ -1,0 +1,103 @@
+[build-system]
+requires = ["hatchling==1.33.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rowsetta"
+version = "0.1.0"
+description = "Show it how you label a few rows. Take away a SQL rule you can read and run."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.13"
+dependencies = [
+  "tabicl==2.2.0",
+  "torch==2.15.0",
+  "scikit-learn>=1.8.0,<2",
+  "pandas>=3.0.2,<4",
+  "numpy>=2.4,<3",
+  "scipy>=1.18.0,<2",
+  "duckdb>=2.0.0,<3",
+  "fastapi>=0.162.0,<1",
+  "uvicorn>=0.54.0,<1",
+  "huggingface-hub>=2.4.0,<3",
+  "pydantic>=2.14,<3",
+  "tqdm>=4.70,<5",
+]
+
+[project.scripts]
+rowsetta = "rowsetta.cli:main"
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux' or sys_platform == 'win32'" }]
+
+[dependency-groups]
+dev = [
+  "ruff==0.17.4",
+  "pyright==1.1.414",
+  "pytest==9.2.0",
+  "hypothesis==6.170.15",
+  "httpx==0.28.1",
+  "psycopg[binary]==3.3.8",
+  "dbt-core==1.12.6",
+  "dbt-duckdb==1.11.1",
+  "fonttools==4.68.0",
+  "pre-commit==4.7.0",
+  "pandas-stubs==3.1.0.261029",
+]
+bench = ["tabpfn==9.2.0", "orbital==0.6.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rowsetta"]
+artifacts = ["src/rowsetta/static/**"]
+
+# hatch_build.py builds the interface into static/; editable installs skip it.
+[tool.hatch.build.targets.wheel.hooks.custom]
+
+# The sdist carries the built interface, so a wheel built from it needs no Node.
+[tool.hatch.build.targets.sdist]
+only-include = [
+  "/src/rowsetta",
+  "/hatch_build.py",
+  "/pyproject.toml",
+  "/README.md",
+  "/LICENSE",
+  "/NOTICE",
+]
+artifacts = ["src/rowsetta/static/**"]
+
+[tool.hatch.build.targets.sdist.hooks.custom]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["ALL"]
+# These exclusions avoid conflicting formatting and redundant docstrings.
+ignore = ["D203", "D213", "COM812", "ISC001", "CPY001", "D100", "D104", "D105", "D107"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S603", "D", "PLR2004"]
+"scripts/**" = ["T201", "INP001"]
+
+[tool.pyright]
+typeCheckingMode = "strict"
+pythonVersion = "3.13"
+reportMissingTypeStubs = "warning"
+# hatchling is a build requirement only, so the development environment cannot resolve it.
+ignore = ["hatch_build.py"]
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-markers"
+testpaths = ["tests"]
+markers = [
+  "model: downloads and runs TabICL (requires ROWSETTA_RUN_MODEL=1)",
+  "pg: needs PostgreSQL at ROWSETTA_PG_DSN",
+  "native: needs subprocesses, sqlite3, duckdb or hypothesis; excluded inside Pyodide",
+]

@@ -1,0 +1,1358 @@
+{
+  "components": {
+    "schemas": {
+      "Agreement": {
+        "description": "Rows where the rule agrees with the teacher, among answered rows.",
+        "properties": {
+          "coverage": {
+            "$ref": "#/components/schemas/Coverage"
+          },
+          "k": {
+            "title": "K",
+            "type": "integer"
+          },
+          "n": {
+            "title": "N",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "k",
+          "n",
+          "coverage"
+        ],
+        "title": "Agreement",
+        "type": "object"
+      },
+      "Audit": {
+        "description": "Columns that may leak the answer.",
+        "properties": {
+          "leaks": {
+            "items": {
+              "$ref": "#/components/schemas/LeakHint"
+            },
+            "title": "Leaks",
+            "type": "array"
+          }
+        },
+        "required": [
+          "leaks"
+        ],
+        "title": "Audit",
+        "type": "object"
+      },
+      "Cell": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "ColumnInfo": {
+        "description": "A source column's inferred kind and ratios.",
+        "properties": {
+          "distinct_ratio": {
+            "title": "Distinct Ratio",
+            "type": "number"
+          },
+          "kind": {
+            "enum": [
+              "numeric",
+              "categorical",
+              "text",
+              "datetime"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "missing_ratio": {
+            "title": "Missing Ratio",
+            "type": "number"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "kind",
+          "distinct_ratio",
+          "missing_ratio"
+        ],
+        "title": "ColumnInfo",
+        "type": "object"
+      },
+      "Coverage": {
+        "description": "Answered rows out of all eligible rows.",
+        "properties": {
+          "answered": {
+            "title": "Answered",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "answered",
+          "total"
+        ],
+        "title": "Coverage",
+        "type": "object"
+      },
+      "DistillInput": {
+        "additionalProperties": false,
+        "description": "Select the maximum depth for the distilled rule.",
+        "properties": {
+          "max_depth": {
+            "default": 4,
+            "minimum": 1.0,
+            "title": "Max Depth",
+            "type": "integer"
+          }
+        },
+        "title": "DistillInput",
+        "type": "object"
+      },
+      "Distilled": {
+        "description": "The distilled rule as display lines, for the inputs of one generation.\n\n`disagreements` lists the rows where the rule and the teacher both answer, differently.",
+        "properties": {
+          "disagreements": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Disagreements",
+            "type": "array"
+          },
+          "generation": {
+            "title": "Generation",
+            "type": "integer"
+          },
+          "leaf_summary": {
+            "items": {
+              "$ref": "#/components/schemas/LeafLine"
+            },
+            "title": "Leaf Summary",
+            "type": "array"
+          }
+        },
+        "required": [
+          "leaf_summary",
+          "disagreements",
+          "generation"
+        ],
+        "title": "Distilled",
+        "type": "object"
+      },
+      "ErrorBody": {
+        "description": "The recovery fields every failure carries, here as a refit failure inside the state.",
+        "properties": {
+          "error": {
+            "title": "Error",
+            "type": "string"
+          },
+          "missing": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Missing",
+            "type": "object"
+          },
+          "next_step": {
+            "title": "Next Step",
+            "type": "string"
+          }
+        },
+        "required": [
+          "error",
+          "next_step"
+        ],
+        "title": "ErrorBody",
+        "type": "object"
+      },
+      "EvalNext": {
+        "description": "The next blind evaluation row, or null once every row has been served.",
+        "properties": {
+          "row_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Row Id"
+          }
+        },
+        "required": [
+          "row_id"
+        ],
+        "title": "EvalNext",
+        "type": "object"
+      },
+      "Evaluation": {
+        "description": "Accuracy on blind evaluation rows against the majority-class baseline.",
+        "properties": {
+          "accuracy": {
+            "$ref": "#/components/schemas/Measured"
+          },
+          "balanced_accuracy": {
+            "discriminator": {
+              "mapping": {
+                "measured": "#/components/schemas/Measured",
+                "needs_rows": "#/components/schemas/NeedsRows"
+              },
+              "propertyName": "kind"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Measured"
+              },
+              {
+                "$ref": "#/components/schemas/NeedsRows"
+              }
+            ],
+            "title": "Balanced Accuracy"
+          },
+          "majority_baseline": {
+            "title": "Majority Baseline",
+            "type": "number"
+          },
+          "majority_class": {
+            "title": "Majority Class",
+            "type": "string"
+          },
+          "n": {
+            "title": "N",
+            "type": "integer"
+          },
+          "per_class_recall": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "title": "Per Class Recall",
+            "type": "object"
+          }
+        },
+        "required": [
+          "n",
+          "accuracy",
+          "balanced_accuracy",
+          "per_class_recall",
+          "majority_class",
+          "majority_baseline"
+        ],
+        "title": "Evaluation",
+        "type": "object"
+      },
+      "ExclusionInput": {
+        "additionalProperties": false,
+        "description": "Whether a source feature is omitted from teacher and rule fitting.",
+        "properties": {
+          "excluded": {
+            "title": "Excluded",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "excluded"
+        ],
+        "title": "ExclusionInput",
+        "type": "object"
+      },
+      "ExportFormat": {
+        "enum": [
+          "sql",
+          "dbt",
+          "python",
+          "json"
+        ],
+        "type": "string"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "Health": {
+        "description": "The unauthenticated liveness probe; it carries no workspace state.",
+        "properties": {
+          "ok": {
+            "title": "Ok",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ok"
+        ],
+        "title": "Health",
+        "type": "object"
+      },
+      "LabelInput": {
+        "additionalProperties": false,
+        "description": "Set or clear one answer in the selected labelling mode.",
+        "properties": {
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label"
+          },
+          "mode": {
+            "default": "human",
+            "enum": [
+              "human",
+              "eval"
+            ],
+            "title": "Mode",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label"
+        ],
+        "title": "LabelInput",
+        "type": "object"
+      },
+      "LeafLine": {
+        "description": "One root-to-leaf rule line with the source rows it covers.",
+        "properties": {
+          "agree": {
+            "$ref": "#/components/schemas/Agreement"
+          },
+          "conditions": {
+            "items": {
+              "maxItems": 3,
+              "minItems": 3,
+              "prefixItems": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "type": "array"
+            },
+            "title": "Conditions",
+            "type": "array"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label"
+          },
+          "line_no": {
+            "title": "Line No",
+            "type": "integer"
+          },
+          "row_ids": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Row Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "line_no",
+          "conditions",
+          "label",
+          "row_ids",
+          "agree"
+        ],
+        "title": "LeafLine",
+        "type": "object"
+      },
+      "LeakHint": {
+        "description": "A column that may give the answer away.",
+        "properties": {
+          "column": {
+            "title": "Column",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "identifier",
+              "single-column",
+              "name"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score"
+          }
+        },
+        "required": [
+          "column",
+          "kind",
+          "reason",
+          "score"
+        ],
+        "title": "LeakHint",
+        "type": "object"
+      },
+      "Measured": {
+        "description": "A measured proportion with its 95% interval.",
+        "properties": {
+          "hi": {
+            "title": "Hi",
+            "type": "number"
+          },
+          "kind": {
+            "const": "measured",
+            "title": "Kind",
+            "type": "string"
+          },
+          "lo": {
+            "title": "Lo",
+            "type": "number"
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": [
+          "kind",
+          "value",
+          "lo",
+          "hi"
+        ],
+        "title": "Measured",
+        "type": "object"
+      },
+      "NeedsRows": {
+        "description": "Evaluation rows per class while a measurement is withheld.",
+        "properties": {
+          "counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Counts",
+            "type": "object"
+          },
+          "kind": {
+            "const": "needs_rows",
+            "title": "Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "counts"
+        ],
+        "title": "NeedsRows",
+        "type": "object"
+      },
+      "Suspect": {
+        "description": "A human label and the out-of-fold teacher probability of that label.",
+        "properties": {
+          "given": {
+            "title": "Given",
+            "type": "string"
+          },
+          "given_probability": {
+            "title": "Given Probability",
+            "type": "number"
+          },
+          "likely": {
+            "title": "Likely",
+            "type": "string"
+          },
+          "row_id": {
+            "title": "Row Id",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "row_id",
+          "given",
+          "given_probability",
+          "likely"
+        ],
+        "title": "Suspect",
+        "type": "object"
+      },
+      "Suspects": {
+        "description": "Human labels from least to most plausible.",
+        "properties": {
+          "suspects": {
+            "items": {
+              "$ref": "#/components/schemas/Suspect"
+            },
+            "title": "Suspects",
+            "type": "array"
+          }
+        },
+        "required": [
+          "suspects"
+        ],
+        "title": "Suspects",
+        "type": "object"
+      },
+      "TablePage": {
+        "description": "One page of source rows; the target column is always null.",
+        "properties": {
+          "columns": {
+            "items": {
+              "$ref": "#/components/schemas/ColumnInfo"
+            },
+            "title": "Columns",
+            "type": "array"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "row_ids": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Row Ids",
+            "type": "array"
+          },
+          "rows": {
+            "items": {
+              "additionalProperties": {
+                "$ref": "#/components/schemas/Cell"
+              },
+              "type": "object"
+            },
+            "title": "Rows",
+            "type": "array"
+          },
+          "size": {
+            "title": "Size",
+            "type": "integer"
+          },
+          "source_rows": {
+            "title": "Source Rows",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "rows",
+          "row_ids",
+          "columns",
+          "total",
+          "source_rows",
+          "page",
+          "size"
+        ],
+        "title": "TablePage",
+        "type": "object"
+      },
+      "TargetInput": {
+        "additionalProperties": false,
+        "description": "Declare a target with its classes, or omit them to take classes and labels from a column.",
+        "properties": {
+          "classes": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Classes",
+            "type": "array"
+          },
+          "target": {
+            "minLength": 1,
+            "title": "Target",
+            "type": "string"
+          }
+        },
+        "required": [
+          "target"
+        ],
+        "title": "TargetInput",
+        "type": "object"
+      },
+      "ThresholdInput": {
+        "additionalProperties": false,
+        "description": "Minimum probability or leaf purity required for an answer.",
+        "properties": {
+          "threshold": {
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Threshold",
+            "type": "number"
+          }
+        },
+        "required": [
+          "threshold"
+        ],
+        "title": "ThresholdInput",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      },
+      "WorkspaceState": {
+        "description": "Labels, proposals and measurements, with reserved evaluation predictions removed.",
+        "properties": {
+          "abstained": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Abstained",
+            "type": "array"
+          },
+          "classes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Classes",
+            "type": "array"
+          },
+          "confidence": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "title": "Confidence",
+            "type": "object"
+          },
+          "dev_states": {
+            "title": "Dev States",
+            "type": "boolean"
+          },
+          "eval_count": {
+            "title": "Eval Count",
+            "type": "integer"
+          },
+          "evaluation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Evaluation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "excluded_columns": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Excluded Columns",
+            "type": "array"
+          },
+          "failure": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ErrorBody"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "file_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File Name"
+          },
+          "generation": {
+            "title": "Generation",
+            "type": "integer"
+          },
+          "human": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Human",
+            "type": "object"
+          },
+          "loaded": {
+            "title": "Loaded",
+            "type": "boolean"
+          },
+          "missing": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Missing",
+            "type": "object"
+          },
+          "next_row": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Row"
+          },
+          "notice": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notice"
+          },
+          "proposals": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Proposals",
+            "type": "object"
+          },
+          "refit_generation": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Refit Generation"
+          },
+          "target": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target"
+          },
+          "threshold": {
+            "title": "Threshold",
+            "type": "number"
+          }
+        },
+        "required": [
+          "loaded",
+          "notice",
+          "target",
+          "classes",
+          "human",
+          "eval_count",
+          "threshold",
+          "excluded_columns",
+          "generation",
+          "refit_generation",
+          "proposals",
+          "confidence",
+          "abstained",
+          "missing",
+          "next_row",
+          "evaluation",
+          "failure",
+          "dev_states"
+        ],
+        "title": "WorkspaceState",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "index__get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Index"
+      }
+    },
+    "/audit": {
+      "get": {
+        "operationId": "audit_audit_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Audit"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Audit"
+      }
+    },
+    "/columns/{name}/excluded": {
+      "put": {
+        "operationId": "exclusion_columns__name__excluded_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExclusionInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Exclusion"
+      }
+    },
+    "/distill": {
+      "post": {
+        "operationId": "distill_distill_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DistillInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Distilled"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Distill"
+      }
+    },
+    "/eval/next": {
+      "get": {
+        "operationId": "eval_next_eval_next_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvalNext"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Eval Next"
+      }
+    },
+    "/events": {
+      "get": {
+        "operationId": "events_events_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Events"
+      }
+    },
+    "/export": {
+      "get": {
+        "operationId": "export_export_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/ExportFormat",
+              "default": "sql"
+            }
+          },
+          {
+            "in": "query",
+            "name": "dialect",
+            "required": false,
+            "schema": {
+              "default": "duckdb",
+              "enum": [
+                "duckdb",
+                "postgres",
+                "sqlite"
+              ],
+              "title": "Dialect",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Export"
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health"
+      }
+    },
+    "/labels/{row_id}": {
+      "put": {
+        "operationId": "label_labels__row_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "row_id",
+            "required": true,
+            "schema": {
+              "title": "Row Id",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LabelInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Label"
+      }
+    },
+    "/session": {
+      "get": {
+        "operationId": "session_session_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Session"
+      }
+    },
+    "/state": {
+      "get": {
+        "operationId": "get_state_state_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get State"
+      }
+    },
+    "/suspects": {
+      "get": {
+        "operationId": "suspects_suspects_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Suspects"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Suspects"
+      }
+    },
+    "/table": {
+      "get": {
+        "operationId": "page_table_table_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Page",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "required": false,
+            "schema": {
+              "default": 100,
+              "maximum": 1000,
+              "minimum": 1,
+              "title": "Size",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TablePage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Page Table"
+      },
+      "post": {
+        "operationId": "load_table_table_post",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Load Table"
+      }
+    },
+    "/target": {
+      "post": {
+        "operationId": "target_target_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Target"
+      }
+    },
+    "/threshold": {
+      "put": {
+        "operationId": "threshold_threshold_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ThresholdInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Threshold"
+      }
+    },
+    "/undo": {
+      "post": {
+        "operationId": "undo_undo_post",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkspaceState"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Undo"
+      }
+    }
+  }
+}

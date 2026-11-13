@@ -1,0 +1,1634 @@
+{
+  "active": {
+    "git_sha": "b246830ff6fd88edbcc4dfe9483393e91f0a5a79",
+    "ineligible_cells": [],
+    "machine": "Darwin arm64 Python 3.13.16",
+    "results": [
+      {
+        "accuracy": {
+          "hi": 1.0,
+          "lo": 0.9902912621359223,
+          "mean": 0.9951456310679612
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9920634920634921,
+          "mean": 0.996031746031746
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "forest",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "margin",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 1.0,
+          "lo": 0.9902912621359223,
+          "mean": 0.9951456310679612
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9920634920634921,
+          "mean": 0.996031746031746
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "forest",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "ours",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.9902912621359223,
+          "lo": 0.970873786407767,
+          "mean": 0.9805825242718447
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.9920634920634921,
+          "lo": 0.975609756097561,
+          "mean": 0.9838366240805265
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "forest",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "random",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.8349514563106796,
+          "lo": 0.5631067961165048,
+          "mean": 0.6990291262135921
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.7394094993581515,
+          "lo": 0.556390977443609,
+          "mean": 0.6479002384008803
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "label_spreading",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "margin",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.7864077669902912,
+          "lo": 0.5242718446601942,
+          "mean": 0.6553398058252426
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.7014060960683045,
+          "lo": 0.5150375939849624,
+          "mean": 0.6082218450266335
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "label_spreading",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "ours",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.912621359223301,
+          "lo": 0.8737864077669902,
+          "mean": 0.8932038834951457
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.9294762715069012,
+          "lo": 0.8968253968253969,
+          "mean": 0.913150834166149
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "label_spreading",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "random",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 1.0,
+          "lo": 0.9902912621359223,
+          "mean": 0.9951456310679612
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9920634920634921,
+          "mean": 0.996031746031746
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "logistic",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "margin",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 1.0,
+          "lo": 0.9902912621359223,
+          "mean": 0.9951456310679612
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9920634920634921,
+          "mean": 0.996031746031746
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "logistic",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "ours",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 1.0,
+          "lo": 0.9902912621359223,
+          "mean": 0.9951456310679612
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9920634920634921,
+          "mean": 0.996031746031746
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "logistic",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "random",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.9902912621359223,
+          "lo": 0.9902912621359223,
+          "mean": 0.9902912621359223
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.9920634920634921,
+          "lo": 0.991869918699187,
+          "mean": 0.9919667053813395
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "self_training",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "margin",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.9902912621359223,
+          "lo": 0.9902912621359223,
+          "mean": 0.9902912621359223
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.9920634920634921,
+          "lo": 0.991869918699187,
+          "mean": 0.9919667053813395
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "self_training",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "ours",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.9902912621359223,
+          "lo": 0.9805825242718447,
+          "mean": 0.9854368932038835
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.9920634920634921,
+          "lo": 0.983739837398374,
+          "mean": 0.9879016647309331
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "self_training",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "random",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 1.0,
+          "lo": 0.9902912621359223,
+          "mean": 0.9951456310679612
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9920634920634921,
+          "mean": 0.996031746031746
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "ece_10_bins": {
+          "hi": 0.009960192499808885,
+          "lo": 0.004272188955140366,
+          "mean": 0.007116190727474625
+        },
+        "learner": "tabicl",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "margin",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 1.0,
+          "lo": 0.9902912621359223,
+          "mean": 0.9951456310679612
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9920634920634921,
+          "mean": 0.996031746031746
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "ece_10_bins": {
+          "hi": 0.008446413336448275,
+          "lo": 0.007577289655370642,
+          "mean": 0.00801185149590946
+        },
+        "learner": "tabicl",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "ours",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.9902912621359223,
+          "lo": 0.9902912621359223,
+          "mean": 0.9902912621359223
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.9920634920634921,
+          "lo": 0.991869918699187,
+          "mean": 0.9919667053813395
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "ece_10_bins": {
+          "hi": 0.018363493738822543,
+          "lo": 0.012446500433301505,
+          "mean": 0.015404997086062024
+        },
+        "learner": "tabicl",
+        "noise": 0.0,
+        "seeds": 2,
+        "strategy": "random",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      }
+    ],
+    "script": "scripts/bench_active.py",
+    "settings": {
+      "budgets": [
+        50
+      ],
+      "datasets": [
+        "penguins"
+      ],
+      "device": "auto",
+      "learners": [
+        "tabicl",
+        "forest",
+        "logistic",
+        "label_spreading",
+        "self_training"
+      ],
+      "numpy": "2.5.4",
+      "oracle_noise": 0.0,
+      "scikit_learn": "1.9.1",
+      "seeds": [
+        7,
+        8
+      ],
+      "smoke": true,
+      "source_sha256": "9f5e6a14c835ab71f8825db7fd5a8842e85021e94b354753d757c8f4bfe0d172"
+    },
+    "wall_seconds": 0.21893891715444624
+  },
+  "active_noise": {
+    "git_sha": "b246830ff6fd88edbcc4dfe9483393e91f0a5a79",
+    "ineligible_cells": [],
+    "machine": "Darwin arm64 Python 3.13.16",
+    "results": [
+      {
+        "accuracy": {
+          "hi": 1.0,
+          "lo": 0.9902912621359223,
+          "mean": 0.9951456310679612
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9920634920634921,
+          "mean": 0.996031746031746
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "ece_10_bins": {
+          "hi": 0.05574219087952548,
+          "lo": 0.051919617699187987,
+          "mean": 0.05383090428935673
+        },
+        "learner": "tabicl",
+        "noise": 0.1,
+        "seeds": 2,
+        "strategy": "ours",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.9902912621359223,
+          "lo": 0.9902912621359223,
+          "mean": 0.9902912621359223
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.9920634920634921,
+          "lo": 0.9824561403508771,
+          "mean": 0.9872598162071846
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "ece_10_bins": {
+          "hi": 0.1286497590611282,
+          "lo": 0.07190196433113616,
+          "mean": 0.10027586169613217
+        },
+        "learner": "tabicl",
+        "noise": 0.1,
+        "seeds": 2,
+        "strategy": "random",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.883495145631068,
+          "lo": 0.8640776699029126,
+          "mean": 0.8737864077669903
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.8463344976167019,
+          "lo": 0.7832080200501252,
+          "mean": 0.8147712588334135
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "tree",
+        "noise": 0.1,
+        "seeds": 2,
+        "strategy": "ours",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      },
+      {
+        "accuracy": {
+          "hi": 0.8737864077669902,
+          "lo": 0.8737864077669902,
+          "mean": 0.8737864077669902
+        },
+        "answered": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        },
+        "balanced_accuracy": {
+          "hi": 0.8968253968253969,
+          "lo": 0.8965778029873323,
+          "mean": 0.8967015999063646
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "learner": "tree",
+        "noise": 0.1,
+        "seeds": 2,
+        "strategy": "random",
+        "total": {
+          "hi": 103.0,
+          "lo": 103.0,
+          "mean": 103.0
+        }
+      }
+    ],
+    "script": "scripts/bench_active.py",
+    "settings": {
+      "budgets": [
+        50
+      ],
+      "datasets": [
+        "penguins"
+      ],
+      "device": "auto",
+      "learners": [
+        "tabicl",
+        "tree"
+      ],
+      "numpy": "2.5.4",
+      "oracle_noise": 0.1,
+      "scikit_learn": "1.9.1",
+      "seeds": [
+        7,
+        8
+      ],
+      "smoke": true,
+      "source_sha256": "9f5e6a14c835ab71f8825db7fd5a8842e85021e94b354753d757c8f4bfe0d172"
+    },
+    "wall_seconds": 0.06282024993561208
+  },
+  "cold_start": {
+    "browser": {
+      "git_sha": "b1c94232ca8c71d813862204ef95d65928efc39b",
+      "machine": "Darwin arm64 Python 3.13.16",
+      "results": [
+        {
+          "bytes": 43047823,
+          "first_proposals_seconds": 22.413567875000002,
+          "table_seconds": 1.1319136660000004,
+          "visit": "cold"
+        },
+        {
+          "bytes": 0,
+          "first_proposals_seconds": 14.081790749999996,
+          "table_seconds": 0.2017998340000013,
+          "visit": "warm"
+        }
+      ],
+      "script": "scripts/cold_start.py",
+      "settings": {
+        "device": "auto",
+        "numpy": "2.5.4",
+        "scikit_learn": "1.9.1",
+        "source_sha256": "4d8bb3ee0277b2a3dd26db216e5065a8ae7c7cf472b2d02b8790314fc0b2d129",
+        "teacher": "lite model",
+        "url": "http://127.0.0.1:4174/"
+      },
+      "wall_seconds": 70.23163066600682
+    }
+  },
+  "distill": {
+    "git_sha": "b246830ff6fd88edbcc4dfe9483393e91f0a5a79",
+    "machine": "Darwin arm64 Python 3.13.16",
+    "preregistered_rule": {
+      "datasets_passing": [],
+      "met": false,
+      "status": "incomplete"
+    },
+    "results": [
+      {
+        "budget": 50,
+        "comparisons": {
+          "al_tree": {
+            "kind": "rule_better",
+            "p": 0.00390625
+          },
+          "random_tree": {
+            "kind": "rule_better",
+            "p": 0.00738525390625
+          },
+          "same_settings": {
+            "kind": "no_difference",
+            "n": 99
+          },
+          "tuned": {
+            "kind": "no_difference",
+            "n": 99
+          }
+        },
+        "dataset": "penguins",
+        "results": {
+          "al_tree": {
+            "accuracy": 0.883495145631068,
+            "answered": 103,
+            "balanced_accuracy": 0.808688387635756,
+            "total": 103
+          },
+          "depths": [
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 238,
+                  "total": 241
+                },
+                "hi": 0.973679112108251,
+                "k": 226,
+                "lo": 0.9135830259218114,
+                "n": 238
+              },
+              "depth": 2,
+              "evaluation": {
+                "coverage": {
+                  "answered": 103,
+                  "total": 103
+                },
+                "hi": 0.9900456322607756,
+                "k": 100,
+                "lo": 0.9178416337467941,
+                "n": 103
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 241,
+                  "total": 241
+                },
+                "k": 231,
+                "n": 241
+              }
+            },
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "hi": 0.9760967620520057,
+                "k": 221,
+                "lo": 0.9167487811694909,
+                "n": 232
+              },
+              "depth": 3,
+              "evaluation": {
+                "coverage": {
+                  "answered": 99,
+                  "total": 103
+                },
+                "hi": 0.9944422799392454,
+                "k": 97,
+                "lo": 0.9293096877341527,
+                "n": 99
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 233,
+                  "total": 241
+                },
+                "k": 227,
+                "n": 233
+              }
+            },
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "hi": 0.9760967620520057,
+                "k": 221,
+                "lo": 0.9167487811694909,
+                "n": 232
+              },
+              "depth": 4,
+              "evaluation": {
+                "coverage": {
+                  "answered": 99,
+                  "total": 103
+                },
+                "hi": 0.9944422799392454,
+                "k": 97,
+                "lo": 0.9293096877341527,
+                "n": 99
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 233,
+                  "total": 241
+                },
+                "k": 227,
+                "n": 233
+              }
+            },
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "hi": 0.9760967620520057,
+                "k": 221,
+                "lo": 0.9167487811694909,
+                "n": 232
+              },
+              "depth": 5,
+              "evaluation": {
+                "coverage": {
+                  "answered": 99,
+                  "total": 103
+                },
+                "hi": 0.9944422799392454,
+                "k": 97,
+                "lo": 0.9293096877341527,
+                "n": 99
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 233,
+                  "total": 241
+                },
+                "k": 227,
+                "n": 233
+              }
+            },
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "hi": 0.9760967620520057,
+                "k": 221,
+                "lo": 0.9167487811694909,
+                "n": 232
+              },
+              "depth": 6,
+              "evaluation": {
+                "coverage": {
+                  "answered": 99,
+                  "total": 103
+                },
+                "hi": 0.9944422799392454,
+                "k": 97,
+                "lo": 0.9293096877341527,
+                "n": 99
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 233,
+                  "total": 241
+                },
+                "k": 227,
+                "n": 233
+              }
+            }
+          ],
+          "random_tree": {
+            "accuracy": 0.8737864077669902,
+            "answered": 103,
+            "balanced_accuracy": 0.8968253968253969,
+            "total": 103
+          },
+          "rule": {
+            "accuracy": 0.9797979797979798,
+            "answered": 99,
+            "balanced_accuracy": 0.9710365853658537,
+            "total": 103
+          },
+          "same_settings": {
+            "accuracy": 0.9902912621359223,
+            "answered": 103,
+            "balanced_accuracy": 0.9920634920634921,
+            "total": 103
+          },
+          "sql_identity": {
+            "duckdb": {
+              "identical": 344,
+              "identity_rate": 1.0,
+              "rows_checked": 344
+            },
+            "orbital": {
+              "identical": 330,
+              "identity_rate": 0.9593023255813954,
+              "inputs": "encoded features; abstention is part of the reference rule",
+              "rows_checked": 344
+            },
+            "postgres": {
+              "rows_checked": 0,
+              "status": "not executed: set ROWSETTA_PG_DSN"
+            },
+            "sqlite": {
+              "identical": 344,
+              "identity_rate": 1.0,
+              "rows_checked": 344
+            }
+          },
+          "teacher": {
+            "accuracy": 0.9902912621359223,
+            "answered": 103,
+            "balanced_accuracy": 0.9920634920634921,
+            "total": 103
+          },
+          "teacher_wilson": {
+            "coverage": {
+              "answered": 103,
+              "total": 103
+            },
+            "hi": 0.9982841085399108,
+            "k": 102,
+            "lo": 0.9470418076123008,
+            "n": 103
+          },
+          "tuned": {
+            "accuracy": 0.9805825242718447,
+            "answered": 103,
+            "balanced_accuracy": 0.9841269841269842,
+            "total": 103
+          }
+        },
+        "seed": 7,
+        "wall_seconds": 0.7461705000605434
+      },
+      {
+        "budget": 50,
+        "comparisons": {
+          "al_tree": {
+            "kind": "no_difference",
+            "n": 99
+          },
+          "random_tree": {
+            "kind": "no_difference",
+            "n": 99
+          },
+          "same_settings": {
+            "kind": "no_difference",
+            "n": 99
+          },
+          "tuned": {
+            "kind": "no_difference",
+            "n": 99
+          }
+        },
+        "dataset": "penguins",
+        "results": {
+          "al_tree": {
+            "accuracy": 0.9514563106796117,
+            "answered": 103,
+            "balanced_accuracy": 0.9216944801026958,
+            "total": 103
+          },
+          "depths": [
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 235,
+                  "total": 241
+                },
+                "hi": 0.9702195442901851,
+                "k": 222,
+                "lo": 0.9072602042058832,
+                "n": 235
+              },
+              "depth": 2,
+              "evaluation": {
+                "coverage": {
+                  "answered": 103,
+                  "total": 103
+                },
+                "hi": 0.9847960105573308,
+                "k": 99,
+                "lo": 0.9043719303779179,
+                "n": 103
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 241,
+                  "total": 241
+                },
+                "k": 232,
+                "n": 241
+              }
+            },
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "hi": 0.9791396074512061,
+                "k": 222,
+                "lo": 0.9221616911777258,
+                "n": 232
+              },
+              "depth": 3,
+              "evaluation": {
+                "coverage": {
+                  "answered": 99,
+                  "total": 103
+                },
+                "hi": 0.9896413605021142,
+                "k": 96,
+                "lo": 0.9146631973255279,
+                "n": 99
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "k": 227,
+                "n": 232
+              }
+            },
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "hi": 0.9791396074512061,
+                "k": 222,
+                "lo": 0.9221616911777258,
+                "n": 232
+              },
+              "depth": 4,
+              "evaluation": {
+                "coverage": {
+                  "answered": 99,
+                  "total": 103
+                },
+                "hi": 0.9896413605021142,
+                "k": 96,
+                "lo": 0.9146631973255279,
+                "n": 99
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "k": 227,
+                "n": 232
+              }
+            },
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "hi": 0.9791396074512061,
+                "k": 222,
+                "lo": 0.9221616911777258,
+                "n": 232
+              },
+              "depth": 5,
+              "evaluation": {
+                "coverage": {
+                  "answered": 99,
+                  "total": 103
+                },
+                "hi": 0.9896413605021142,
+                "k": 96,
+                "lo": 0.9146631973255279,
+                "n": 99
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "k": 227,
+                "n": 232
+              }
+            },
+            {
+              "cross_fitted": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "hi": 0.9791396074512061,
+                "k": 222,
+                "lo": 0.9221616911777258,
+                "n": 232
+              },
+              "depth": 6,
+              "evaluation": {
+                "coverage": {
+                  "answered": 99,
+                  "total": 103
+                },
+                "hi": 0.9896413605021142,
+                "k": 96,
+                "lo": 0.9146631973255279,
+                "n": 99
+              },
+              "in_sample": {
+                "coverage": {
+                  "answered": 232,
+                  "total": 241
+                },
+                "k": 227,
+                "n": 232
+              }
+            }
+          ],
+          "random_tree": {
+            "accuracy": 0.912621359223301,
+            "answered": 103,
+            "balanced_accuracy": 0.9272074116089998,
+            "total": 103
+          },
+          "rule": {
+            "accuracy": 0.9696969696969697,
+            "answered": 99,
+            "balanced_accuracy": 0.974704202366381,
+            "total": 103
+          },
+          "same_settings": {
+            "accuracy": 0.9611650485436893,
+            "answered": 103,
+            "balanced_accuracy": 0.9686141047456985,
+            "total": 103
+          },
+          "sql_identity": {
+            "duckdb": {
+              "identical": 344,
+              "identity_rate": 1.0,
+              "rows_checked": 344
+            },
+            "orbital": {
+              "identical": 329,
+              "identity_rate": 0.9563953488372093,
+              "inputs": "encoded features; abstention is part of the reference rule",
+              "rows_checked": 344
+            },
+            "postgres": {
+              "rows_checked": 0,
+              "status": "not executed: set ROWSETTA_PG_DSN"
+            },
+            "sqlite": {
+              "identical": 344,
+              "identity_rate": 1.0,
+              "rows_checked": 344
+            }
+          },
+          "teacher": {
+            "accuracy": 1.0,
+            "answered": 103,
+            "balanced_accuracy": 1.0,
+            "total": 103
+          },
+          "teacher_wilson": {
+            "coverage": {
+              "answered": 103,
+              "total": 103
+            },
+            "hi": 1.0,
+            "k": 103,
+            "lo": 0.9640452412245328,
+            "n": 103
+          },
+          "tuned": {
+            "accuracy": 0.941747572815534,
+            "answered": 103,
+            "balanced_accuracy": 0.9323919554985024,
+            "total": 103
+          }
+        },
+        "seed": 8,
+        "wall_seconds": 0.4420636249706149
+      }
+    ],
+    "script": "scripts/bench_distill.py",
+    "settings": {
+      "budgets": [
+        50
+      ],
+      "datasets": [
+        "penguins"
+      ],
+      "device": "auto",
+      "numpy": "2.5.4",
+      "oracle_noise": 0.0,
+      "scikit_learn": "1.9.1",
+      "seeds": [
+        7,
+        8
+      ],
+      "smoke": true,
+      "source_sha256": "9f5e6a14c835ab71f8825db7fd5a8842e85021e94b354753d757c8f4bfe0d172"
+    },
+    "summaries": [
+      {
+        "al_tree": {
+          "accuracy": {
+            "hi": 0.9514563106796117,
+            "lo": 0.883495145631068,
+            "mean": 0.9174757281553398
+          },
+          "coverage": {
+            "hi": 1.0,
+            "lo": 1.0,
+            "mean": 1.0
+          }
+        },
+        "al_tree_mcnemar_share": {
+          "no_difference": 0.5,
+          "other_better": 0.0,
+          "rule_better": 0.5
+        },
+        "budget": 50,
+        "dataset": "penguins",
+        "random_tree": {
+          "accuracy": {
+            "hi": 0.912621359223301,
+            "lo": 0.8737864077669902,
+            "mean": 0.8932038834951457
+          },
+          "coverage": {
+            "hi": 1.0,
+            "lo": 1.0,
+            "mean": 1.0
+          }
+        },
+        "random_tree_mcnemar_share": {
+          "no_difference": 0.5,
+          "other_better": 0.0,
+          "rule_better": 0.5
+        },
+        "rule": {
+          "accuracy": {
+            "hi": 0.9797979797979798,
+            "lo": 0.9696969696969697,
+            "mean": 0.9747474747474747
+          },
+          "coverage": {
+            "hi": 0.9611650485436893,
+            "lo": 0.9611650485436893,
+            "mean": 0.9611650485436893
+          }
+        },
+        "same_settings": {
+          "accuracy": {
+            "hi": 0.9902912621359223,
+            "lo": 0.9611650485436893,
+            "mean": 0.9757281553398058
+          },
+          "coverage": {
+            "hi": 1.0,
+            "lo": 1.0,
+            "mean": 1.0
+          }
+        },
+        "same_settings_mcnemar_share": {
+          "no_difference": 1.0,
+          "other_better": 0.0,
+          "rule_better": 0.0
+        },
+        "seeds": 2,
+        "teacher": {
+          "accuracy": {
+            "hi": 1.0,
+            "lo": 0.9902912621359223,
+            "mean": 0.9951456310679612
+          },
+          "coverage": {
+            "hi": 1.0,
+            "lo": 1.0,
+            "mean": 1.0
+          }
+        },
+        "tuned": {
+          "accuracy": {
+            "hi": 0.9805825242718447,
+            "lo": 0.941747572815534,
+            "mean": 0.9611650485436893
+          },
+          "coverage": {
+            "hi": 1.0,
+            "lo": 1.0,
+            "mean": 1.0
+          }
+        },
+        "tuned_mcnemar_share": {
+          "no_difference": 1.0,
+          "other_better": 0.0,
+          "rule_better": 0.0
+        }
+      }
+    ],
+    "wall_seconds": 0.04817629209719598
+  },
+  "leaks": {
+    "git_sha": "b246830ff6fd88edbcc4dfe9483393e91f0a5a79",
+    "machine": "Darwin arm64 Python 3.13.16",
+    "results": [
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.0,
+        "seed": 7,
+        "wall_seconds": 0.5560528750065714
+      },
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.05,
+        "seed": 7,
+        "wall_seconds": 0.09588708402588964
+      },
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.1,
+        "seed": 7,
+        "wall_seconds": 0.09542095800861716
+      },
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.2,
+        "seed": 7,
+        "wall_seconds": 0.09529020800255239
+      },
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.4,
+        "seed": 7,
+        "wall_seconds": 0.09596270811744034
+      },
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.0,
+        "seed": 8,
+        "wall_seconds": 0.09640420787036419
+      },
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.05,
+        "seed": 8,
+        "wall_seconds": 0.09661624999716878
+      },
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.1,
+        "seed": 8,
+        "wall_seconds": 0.09608141682110727
+      },
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.2,
+        "seed": 8,
+        "wall_seconds": 0.0962629159912467
+      },
+      {
+        "budget": 50,
+        "clean_columns": 7,
+        "clean_columns_flagged": [],
+        "dataset": "penguins",
+        "detected": false,
+        "duration_flagged": null,
+        "duration_score": null,
+        "flip_rate": 0.4,
+        "seed": 8,
+        "wall_seconds": 0.09606895805336535
+      }
+    ],
+    "script": "scripts/bench_leaks.py",
+    "settings": {
+      "budgets": [
+        50
+      ],
+      "datasets": [
+        "penguins"
+      ],
+      "device": "auto",
+      "flip_rates": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "numpy": "2.5.4",
+      "scikit_learn": "1.9.1",
+      "seeds": [
+        7,
+        8
+      ],
+      "smoke": true,
+      "source_sha256": "9f5e6a14c835ab71f8825db7fd5a8842e85021e94b354753d757c8f4bfe0d172"
+    },
+    "summaries": [
+      {
+        "budget": 50,
+        "clean_column_false_positive_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "dataset": "penguins",
+        "detection_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "flip_rate": 0.0,
+        "seeds": 2
+      },
+      {
+        "budget": 50,
+        "clean_column_false_positive_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "dataset": "penguins",
+        "detection_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "flip_rate": 0.05,
+        "seeds": 2
+      },
+      {
+        "budget": 50,
+        "clean_column_false_positive_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "dataset": "penguins",
+        "detection_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "flip_rate": 0.1,
+        "seeds": 2
+      },
+      {
+        "budget": 50,
+        "clean_column_false_positive_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "dataset": "penguins",
+        "detection_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "flip_rate": 0.2,
+        "seeds": 2
+      },
+      {
+        "budget": 50,
+        "clean_column_false_positive_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "dataset": "penguins",
+        "detection_rate": {
+          "hi": 0.0,
+          "lo": 0.0,
+          "mean": 0.0
+        },
+        "flip_rate": 0.4,
+        "seeds": 2
+      }
+    ],
+    "wall_seconds": 0.04456487507559359
+  },
+  "llm": {
+    "git_sha": "b246830ff6fd88edbcc4dfe9483393e91f0a5a79",
+    "machine": "Darwin arm64 Python 3.13.16",
+    "results": [
+      {
+        "budget": 50,
+        "caveat": "may be memorised: famous public dataset",
+        "dataset": "penguins",
+        "llm": {
+          "accuracy": 0.8,
+          "answered": 10,
+          "balanced_accuracy": 0.8222222222222223,
+          "total": 10
+        },
+        "median_seconds_per_row": 0.4171199790434912,
+        "repeated_rows": 10,
+        "run_agreement": 1.0,
+        "seconds": 27.49142425111495,
+        "seed": 7,
+        "teacher": {
+          "accuracy": 0.9,
+          "answered": 10,
+          "balanced_accuracy": 0.9333333333333332,
+          "total": 10
+        }
+      },
+      {
+        "budget": 50,
+        "caveat": "may be memorised: famous public dataset",
+        "dataset": "penguins",
+        "llm": {
+          "accuracy": 1.0,
+          "answered": 10,
+          "balanced_accuracy": 1.0,
+          "total": 10
+        },
+        "median_seconds_per_row": 0.5038393329596147,
+        "repeated_rows": 10,
+        "run_agreement": 1.0,
+        "seconds": 16.621179419802502,
+        "seed": 8,
+        "teacher": {
+          "accuracy": 1.0,
+          "answered": 10,
+          "balanced_accuracy": 1.0,
+          "total": 10
+        }
+      }
+    ],
+    "script": "scripts/bench_llm.py",
+    "settings": {
+      "budgets": [
+        50
+      ],
+      "datasets": [
+        "penguins"
+      ],
+      "device": "auto",
+      "eval_rows": 10,
+      "model_digest": "0ce5ff81f9ffdf89dd8192ca7b5d34cefd8996a875b3aaaaafaf5c4813569eba",
+      "numpy": "2.5.4",
+      "scikit_learn": "1.9.1",
+      "seeds": [
+        7,
+        8
+      ],
+      "smoke": true,
+      "source_sha256": "9f5e6a14c835ab71f8825db7fd5a8842e85021e94b354753d757c8f4bfe0d172"
+    },
+    "summaries": [
+      {
+        "budget": "50",
+        "caveat": "may be memorised: famous public dataset",
+        "dataset": "penguins",
+        "llm_accuracy": {
+          "hi": 1.0,
+          "lo": 0.8,
+          "mean": 0.9
+        },
+        "llm_balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.8222222222222223,
+          "mean": 0.9111111111111112
+        },
+        "median_seconds_per_row": {
+          "hi": 0.5038393329596147,
+          "lo": 0.4171199790434912,
+          "mean": 0.46047965600155294
+        },
+        "run_agreement": {
+          "hi": 1.0,
+          "lo": 1.0,
+          "mean": 1.0
+        },
+        "seeds": 2,
+        "teacher_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9,
+          "mean": 0.95
+        },
+        "teacher_balanced_accuracy": {
+          "hi": 1.0,
+          "lo": 0.9333333333333332,
+          "mean": 0.9666666666666666
+        }
+      }
+    ],
+    "wall_seconds": 0.10375408316031098
+  },
+  "teacher": {
+    "penguins_6_labels": {
+      "accuracy": 0.8905325443786982
+    }
+  }
+}

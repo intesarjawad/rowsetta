@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Benchmark measurements",
+  "type": "object",
+  "required": [
+    "teacher"
+  ],
+  "properties": {
+    "teacher": {
+      "type": "object",
+      "required": [
+        "penguins_6_labels"
+      ],
+      "properties": {
+        "penguins_6_labels": {
+          "type": "object",
+          "required": [
+            "accuracy"
+          ],
+          "properties": {
+            "accuracy": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      }
+    },
+    "active": {
+      "$ref": "#/$defs/section"
+    },
+    "active_noise": {
+      "$ref": "#/$defs/section"
+    },
+    "leaks": {
+      "$ref": "#/$defs/section"
+    },
+    "llm": {
+      "$ref": "#/$defs/section"
+    },
+    "distill": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/section"
+        },
+        {
+          "type": "object",
+          "required": [
+            "preregistered_rule"
+          ],
+          "properties": {
+            "preregistered_rule": {
+              "type": "object",
+              "required": [
+                "met",
+                "datasets_passing",
+                "status"
+              ],
+              "properties": {
+                "met": {
+                  "type": "boolean"
+                },
+                "datasets_passing": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "enum": [
+                      "penguins",
+                      "bank",
+                      "adult",
+                      "dry_bean",
+                      "mushroom",
+                      "car"
+                    ]
+                  }
+                },
+                "status": {
+                  "enum": [
+                    "complete",
+                    "incomplete"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "cold_start": {
+      "type": "object",
+      "properties": {
+        "browser": {
+          "$ref": "#/$defs/section"
+        },
+        "local": {
+          "$ref": "#/$defs/section"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "section": {
+      "type": "object",
+      "required": [
+        "script",
+        "git_sha",
+        "machine",
+        "wall_seconds",
+        "settings",
+        "results"
+      ],
+      "properties": {
+        "script": {
+          "type": "string",
+          "pattern": "^scripts/"
+        },
+        "git_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "machine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "wall_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "settings": {
+          "type": "object"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

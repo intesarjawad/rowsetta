@@ -1,0 +1,1139 @@
+{
+  "estimators": 4,
+  "boundaries": [
+    {
+      "dataset": "penguins",
+      "seed": 42,
+      "norm": "power",
+      "encoded": {
+        "shape": [
+          7,
+          20
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0
+        ],
+        "python": 1.0,
+        "browser": 1.0
+      },
+      "nativeMember0": {
+        "feat": [
+          1,
+          4,
+          6,
+          0,
+          3,
+          2,
+          5
+        ],
+        "cls": [
+          2,
+          0,
+          1
+        ]
+      },
+      "browserMember0": {
+        "norm": "power",
+        "feat": [
+          2,
+          0,
+          3,
+          4,
+          5,
+          1,
+          6
+        ],
+        "cls": [
+          2,
+          0,
+          1
+        ]
+      },
+      "X": {
+        "shape": [
+          2,
+          364,
+          7
+        ],
+        "maxDifference": 5.101230621337891,
+        "index": [
+          0,
+          142,
+          1
+        ],
+        "python": -2.7862284183502197,
+        "browser": 2.315002202987671
+      },
+      "y": {
+        "shape": [
+          40
+        ],
+        "maxDifference": 2.0,
+        "index": [
+          26
+        ],
+        "python": 0.0,
+        "browser": 2.0
+      },
+      "logits": {
+        "shape": [
+          2,
+          344,
+          3
+        ],
+        "maxDifference": 9.94477379322052,
+        "index": [
+          1,
+          273,
+          1
+        ],
+        "python": 11.096367835998535,
+        "browser": 1.1515940427780151
+      }
+    },
+    {
+      "dataset": "penguins",
+      "seed": 42,
+      "norm": "none",
+      "encoded": {
+        "shape": [
+          7,
+          20
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0
+        ],
+        "python": 1.0,
+        "browser": 1.0
+      },
+      "nativeMember0": {
+        "feat": [
+          1,
+          4,
+          6,
+          0,
+          3,
+          2,
+          5
+        ],
+        "cls": [
+          2,
+          0,
+          1
+        ]
+      },
+      "browserMember0": {
+        "norm": "none",
+        "feat": [
+          2,
+          0,
+          3,
+          4,
+          5,
+          1,
+          6
+        ],
+        "cls": [
+          2,
+          0,
+          1
+        ]
+      },
+      "X": {
+        "shape": [
+          2,
+          364,
+          7
+        ],
+        "maxDifference": 6.068692922592163,
+        "index": [
+          1,
+          23,
+          4
+        ],
+        "python": 2.358996868133545,
+        "browser": -3.709696054458618
+      },
+      "y": {
+        "shape": [
+          40
+        ],
+        "maxDifference": 2.0,
+        "index": [
+          26
+        ],
+        "python": 0.0,
+        "browser": 2.0
+      },
+      "logits": {
+        "shape": [
+          2,
+          344,
+          3
+        ],
+        "maxDifference": 9.938395023345947,
+        "index": [
+          1,
+          273,
+          1
+        ],
+        "python": 11.065180778503418,
+        "browser": 1.1267857551574707
+      }
+    },
+    {
+      "dataset": "bank_2k",
+      "seed": 42,
+      "norm": "power",
+      "encoded": {
+        "shape": [
+          16,
+          50
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0
+        ],
+        "python": 9.0,
+        "browser": 9.0
+      },
+      "nativeMember0": {
+        "feat": [
+          4,
+          10,
+          2,
+          7,
+          9,
+          12,
+          11,
+          13,
+          3,
+          1,
+          14,
+          5,
+          8,
+          0,
+          6
+        ],
+        "cls": [
+          1,
+          0
+        ]
+      },
+      "browserMember0": {
+        "norm": "power",
+        "feat": [
+          6,
+          2,
+          11,
+          8,
+          0,
+          10,
+          1,
+          3,
+          12,
+          9,
+          13,
+          14,
+          5,
+          4,
+          7
+        ],
+        "cls": [
+          1,
+          0
+        ]
+      },
+      "X": {
+        "shape": [
+          2,
+          2050,
+          15
+        ],
+        "maxDifference": 8.970240473747253,
+        "index": [
+          0,
+          644,
+          9
+        ],
+        "python": 1.1686557531356812,
+        "browser": -7.801584720611572
+      },
+      "y": {
+        "shape": [
+          100
+        ],
+        "maxDifference": 1.0,
+        "index": [
+          50
+        ],
+        "python": 1.0,
+        "browser": 0.0
+      },
+      "logits": {
+        "shape": [
+          2,
+          2000,
+          2
+        ],
+        "maxDifference": 8.60618281364441,
+        "index": [
+          1,
+          864,
+          0
+        ],
+        "python": 2.6061604022979736,
+        "browser": 11.212343215942383
+      }
+    },
+    {
+      "dataset": "bank_2k",
+      "seed": 42,
+      "norm": "none",
+      "encoded": {
+        "shape": [
+          16,
+          50
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0
+        ],
+        "python": 9.0,
+        "browser": 9.0
+      },
+      "nativeMember0": {
+        "feat": [
+          4,
+          10,
+          2,
+          7,
+          9,
+          12,
+          11,
+          13,
+          3,
+          1,
+          14,
+          5,
+          8,
+          0,
+          6
+        ],
+        "cls": [
+          1,
+          0
+        ]
+      },
+      "browserMember0": {
+        "norm": "none",
+        "feat": [
+          6,
+          2,
+          11,
+          8,
+          0,
+          10,
+          1,
+          3,
+          12,
+          9,
+          13,
+          14,
+          5,
+          4,
+          7
+        ],
+        "cls": [
+          1,
+          0
+        ]
+      },
+      "X": {
+        "shape": [
+          2,
+          2050,
+          15
+        ],
+        "maxDifference": 7.8613057136535645,
+        "index": [
+          1,
+          1497,
+          7
+        ],
+        "python": -1.8058972358703613,
+        "browser": 6.055408477783203
+      },
+      "y": {
+        "shape": [
+          100
+        ],
+        "maxDifference": 1.0,
+        "index": [
+          50
+        ],
+        "python": 1.0,
+        "browser": 0.0
+      },
+      "logits": {
+        "shape": [
+          2,
+          2000,
+          2
+        ],
+        "maxDifference": 8.279659986495972,
+        "index": [
+          1,
+          1646,
+          1
+        ],
+        "python": 2.7996180057525635,
+        "browser": 11.079277992248535
+      }
+    },
+    {
+      "dataset": "penguins",
+      "seed": 7,
+      "norm": "power",
+      "encoded": {
+        "shape": [
+          7,
+          20
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0
+        ],
+        "python": 1.0,
+        "browser": 1.0
+      },
+      "nativeMember0": {
+        "feat": [
+          1,
+          4,
+          6,
+          0,
+          3,
+          2,
+          5
+        ],
+        "cls": [
+          2,
+          0,
+          1
+        ]
+      },
+      "browserMember0": {
+        "norm": "power",
+        "feat": [
+          1,
+          4,
+          6,
+          0,
+          3,
+          2,
+          5
+        ],
+        "cls": [
+          2,
+          0,
+          1
+        ]
+      },
+      "X": {
+        "shape": [
+          2,
+          364,
+          7
+        ],
+        "maxDifference": 1.1920928955078125e-07,
+        "index": [
+          0,
+          4,
+          6
+        ],
+        "python": -1.3274480104446411,
+        "browser": -1.3274478912353516
+      },
+      "y": {
+        "shape": [
+          40
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0
+        ],
+        "python": 2.0,
+        "browser": 2.0
+      },
+      "logits": {
+        "shape": [
+          2,
+          344,
+          3
+        ],
+        "maxDifference": 0.0053348541259765625,
+        "index": [
+          1,
+          300,
+          2
+        ],
+        "python": 5.092434406280518,
+        "browser": 5.087099552154541
+      }
+    },
+    {
+      "dataset": "penguins",
+      "seed": 7,
+      "norm": "none",
+      "encoded": {
+        "shape": [
+          7,
+          20
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0
+        ],
+        "python": 1.0,
+        "browser": 1.0
+      },
+      "nativeMember0": {
+        "feat": [
+          1,
+          4,
+          6,
+          0,
+          3,
+          2,
+          5
+        ],
+        "cls": [
+          2,
+          0,
+          1
+        ]
+      },
+      "browserMember0": {
+        "norm": "none",
+        "feat": [
+          1,
+          4,
+          6,
+          0,
+          3,
+          2,
+          5
+        ],
+        "cls": [
+          2,
+          0,
+          1
+        ]
+      },
+      "X": {
+        "shape": [
+          2,
+          364,
+          7
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0,
+          0
+        ],
+        "python": -1.5275218486785889,
+        "browser": -1.5275218486785889
+      },
+      "y": {
+        "shape": [
+          40
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0
+        ],
+        "python": 2.0,
+        "browser": 2.0
+      },
+      "logits": {
+        "shape": [
+          2,
+          344,
+          3
+        ],
+        "maxDifference": 0.0044062137603759766,
+        "index": [
+          1,
+          96,
+          1
+        ],
+        "python": 2.209519386291504,
+        "browser": 2.21392560005188
+      }
+    },
+    {
+      "dataset": "bank_2k",
+      "seed": 7,
+      "norm": "power",
+      "encoded": {
+        "shape": [
+          16,
+          50
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0
+        ],
+        "python": 9.0,
+        "browser": 9.0
+      },
+      "nativeMember0": {
+        "feat": [
+          4,
+          10,
+          2,
+          7,
+          9,
+          12,
+          11,
+          13,
+          3,
+          1,
+          14,
+          5,
+          8,
+          0,
+          6
+        ],
+        "cls": [
+          1,
+          0
+        ]
+      },
+      "browserMember0": {
+        "norm": "power",
+        "feat": [
+          4,
+          10,
+          2,
+          7,
+          9,
+          12,
+          11,
+          13,
+          3,
+          1,
+          14,
+          5,
+          8,
+          0,
+          6
+        ],
+        "cls": [
+          1,
+          0
+        ]
+      },
+      "X": {
+        "shape": [
+          2,
+          2050,
+          15
+        ],
+        "maxDifference": 2.384185791015625e-07,
+        "index": [
+          0,
+          334,
+          5
+        ],
+        "python": 2.1763153076171875,
+        "browser": 2.1763155460357666
+      },
+      "y": {
+        "shape": [
+          100
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0
+        ],
+        "python": 1.0,
+        "browser": 1.0
+      },
+      "logits": {
+        "shape": [
+          2,
+          2000,
+          2
+        ],
+        "maxDifference": 0.04595375061035156,
+        "index": [
+          1,
+          1999,
+          1
+        ],
+        "python": 9.038240432739258,
+        "browser": 9.08419418334961
+      }
+    },
+    {
+      "dataset": "bank_2k",
+      "seed": 7,
+      "norm": "none",
+      "encoded": {
+        "shape": [
+          16,
+          50
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0
+        ],
+        "python": 9.0,
+        "browser": 9.0
+      },
+      "nativeMember0": {
+        "feat": [
+          4,
+          10,
+          2,
+          7,
+          9,
+          12,
+          11,
+          13,
+          3,
+          1,
+          14,
+          5,
+          8,
+          0,
+          6
+        ],
+        "cls": [
+          1,
+          0
+        ]
+      },
+      "browserMember0": {
+        "norm": "none",
+        "feat": [
+          4,
+          10,
+          2,
+          7,
+          9,
+          12,
+          11,
+          13,
+          3,
+          1,
+          14,
+          5,
+          8,
+          0,
+          6
+        ],
+        "cls": [
+          1,
+          0
+        ]
+      },
+      "X": {
+        "shape": [
+          2,
+          2050,
+          15
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0,
+          0,
+          0
+        ],
+        "python": -0.33333221077919006,
+        "browser": -0.33333221077919006
+      },
+      "y": {
+        "shape": [
+          100
+        ],
+        "maxDifference": 0.0,
+        "index": [
+          0
+        ],
+        "python": 1.0,
+        "browser": 1.0
+      },
+      "logits": {
+        "shape": [
+          2,
+          2000,
+          2
+        ],
+        "maxDifference": 0.013708114624023438,
+        "index": [
+          1,
+          1999,
+          1
+        ],
+        "python": 9.313982963562012,
+        "browser": 9.327691078186035
+      }
+    }
+  ],
+  "graphBoundaries": [
+    {
+      "dataset": "penguins",
+      "norm": "power",
+      "onnxCpuVsWebGPU": {
+        "projection": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.0,
+          "index": [
+            0
+          ],
+          "python": 0.12806086242198944,
+          "browser": 0.12806086242198944
+        },
+        "column0": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 3.8743019104003906e-07,
+          "index": [
+            0
+          ],
+          "python": 0.18432459235191345,
+          "browser": 0.1843249797821045
+        },
+        "column1": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 2.384185791015625e-06,
+          "index": [
+            96
+          ],
+          "python": -0.06514117121696472,
+          "browser": -0.06514355540275574
+        },
+        "column2": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 2.9802322387695312e-06,
+          "index": [
+            53
+          ],
+          "python": 1.4950623512268066,
+          "browser": 1.4950593709945679
+        },
+        "row": {
+          "shape": [
+            512
+          ],
+          "maxDifference": 1.1354684829711914e-05,
+          "index": [
+            466
+          ],
+          "python": -0.21798351407051086,
+          "browser": -0.21799486875534058
+        }
+      },
+      "nativeVsOnnxCpu": {
+        "column2": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 4.0531158447265625e-06,
+          "index": [
+            7
+          ],
+          "python": 2.4426512718200684,
+          "browser": 2.4426472187042236
+        },
+        "row": {
+          "shape": [
+            512
+          ],
+          "maxDifference": 7.957220077514648e-06,
+          "index": [
+            466
+          ],
+          "python": -0.21799147129058838,
+          "browser": -0.21798351407051086
+        }
+      }
+    },
+    {
+      "dataset": "penguins",
+      "norm": "none",
+      "onnxCpuVsWebGPU": {
+        "projection": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.0,
+          "index": [
+            0
+          ],
+          "python": 0.13003306090831757,
+          "browser": 0.13003306090831757
+        },
+        "column0": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 8.344650268554688e-07,
+          "index": [
+            14
+          ],
+          "python": 1.0631686449050903,
+          "browser": 1.0631678104400635
+        },
+        "column1": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 2.771615982055664e-06,
+          "index": [
+            51
+          ],
+          "python": 0.223380446434021,
+          "browser": 0.22338321805000305
+        },
+        "column2": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 3.933906555175781e-06,
+          "index": [
+            8
+          ],
+          "python": 1.4887080192565918,
+          "browser": 1.4887040853500366
+        },
+        "row": {
+          "shape": [
+            512
+          ],
+          "maxDifference": 8.374452590942383e-06,
+          "index": [
+            432
+          ],
+          "python": -0.3880823254585266,
+          "browser": -0.38807395100593567
+        }
+      },
+      "nativeVsOnnxCpu": {
+        "column2": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 2.9206275939941406e-06,
+          "index": [
+            6
+          ],
+          "python": -0.13872352242469788,
+          "browser": -0.13872644305229187
+        },
+        "row": {
+          "shape": [
+            512
+          ],
+          "maxDifference": 1.2829899787902832e-05,
+          "index": [
+            466
+          ],
+          "python": -0.22037693858146667,
+          "browser": -0.22036410868167877
+        }
+      }
+    },
+    {
+      "dataset": "bank_2k",
+      "norm": "power",
+      "onnxCpuVsWebGPU": {
+        "projection": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.0,
+          "index": [
+            0
+          ],
+          "python": -0.059643372893333435,
+          "browser": -0.059643372893333435
+        },
+        "column0": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.0021754801273345947,
+          "index": [
+            26
+          ],
+          "python": 0.16236060857772827,
+          "browser": 0.16018512845039368
+        },
+        "column1": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.09184089303016663,
+          "index": [
+            39
+          ],
+          "python": 0.22806163132190704,
+          "browser": 0.13622073829174042
+        },
+        "column2": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.15755319595336914,
+          "index": [
+            97
+          ],
+          "python": 1.2389857769012451,
+          "browser": 1.081432580947876
+        },
+        "row": {
+          "shape": [
+            512
+          ],
+          "maxDifference": 0.12986073642969131,
+          "index": [
+            421
+          ],
+          "python": -0.11338876932859421,
+          "browser": -0.24324950575828552
+        }
+      },
+      "nativeVsOnnxCpu": {
+        "column2": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 1.169741153717041e-05,
+          "index": [
+            37
+          ],
+          "python": 0.1385962963104248,
+          "browser": 0.13860799372196198
+        },
+        "row": {
+          "shape": [
+            512
+          ],
+          "maxDifference": 5.072355270385742e-05,
+          "index": [
+            479
+          ],
+          "python": -0.6191465258598328,
+          "browser": -0.6191972494125366
+        }
+      }
+    },
+    {
+      "dataset": "bank_2k",
+      "norm": "none",
+      "onnxCpuVsWebGPU": {
+        "projection": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.0,
+          "index": [
+            0
+          ],
+          "python": -0.05962258577346802,
+          "browser": -0.05962258577346802
+        },
+        "column0": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.002149611711502075,
+          "index": [
+            26
+          ],
+          "python": 0.16677981615066528,
+          "browser": 0.1646302044391632
+        },
+        "column1": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.09179583191871643,
+          "index": [
+            39
+          ],
+          "python": 0.24121227860450745,
+          "browser": 0.14941644668579102
+        },
+        "column2": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 0.15751266479492188,
+          "index": [
+            97
+          ],
+          "python": 1.2476434707641602,
+          "browser": 1.0901308059692383
+        },
+        "row": {
+          "shape": [
+            512
+          ],
+          "maxDifference": 0.10686671733856201,
+          "index": [
+            399
+          ],
+          "python": -1.312185525894165,
+          "browser": -1.419052243232727
+        }
+      },
+      "nativeVsOnnxCpu": {
+        "column2": {
+          "shape": [
+            128
+          ],
+          "maxDifference": 9.953975677490234e-06,
+          "index": [
+            77
+          ],
+          "python": -0.2562231719493866,
+          "browser": -0.2562132179737091
+        },
+        "row": {
+          "shape": [
+            512
+          ],
+          "maxDifference": 1.6391277313232422e-05,
+          "index": [
+            351
+          ],
+          "python": 0.305627703666687,
+          "browser": 0.30564409494400024
+        }
+      }
+    }
+  ]
+}

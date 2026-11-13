@@ -1,0 +1,16 @@
+name: SQL dialect proposal
+description: Propose an export dialect with an execution-based identity check.
+body:
+  - type: input
+    id: dialect
+    attributes:
+      label: Database and version
+    validations:
+      required: true
+  - type: textarea
+    id: semantics
+    attributes:
+      label: Numeric, NULL and categorical semantics
+      description: Link official documentation and describe an execution test.
+    validations:
+      required: true

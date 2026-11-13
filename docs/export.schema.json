@@ -1,0 +1,568 @@
+{
+  "$defs": {
+    "Certificate": {
+      "description": "Export facts supplied by the caller, without clock or model access.",
+      "properties": {
+        "tool_name": {
+          "title": "Tool Name",
+          "type": "string"
+        },
+        "tool_version": {
+          "title": "Tool Version",
+          "type": "string"
+        },
+        "export_date": {
+          "format": "date",
+          "title": "Export Date",
+          "type": "string"
+        },
+        "row_count": {
+          "title": "Row Count",
+          "type": "integer"
+        },
+        "columns": {
+          "items": {
+            "$ref": "#/$defs/ColumnType"
+          },
+          "title": "Columns",
+          "type": "array"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "classes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Classes",
+          "type": "array"
+        },
+        "tree_depth": {
+          "title": "Tree Depth",
+          "type": "integer"
+        },
+        "tree_leaves": {
+          "title": "Tree Leaves",
+          "type": "integer"
+        },
+        "in_sample": {
+          "$ref": "#/$defs/Count"
+        },
+        "cross_fitted": {
+          "$ref": "#/$defs/Rate"
+        },
+        "rule_accuracy": {
+          "$ref": "#/$defs/Rate"
+        },
+        "teacher_accuracy": {
+          "$ref": "#/$defs/Rate"
+        },
+        "direct_same_accuracy": {
+          "$ref": "#/$defs/Rate"
+        },
+        "direct_tuned_accuracy": {
+          "$ref": "#/$defs/Rate"
+        },
+        "comparison": {
+          "$ref": "#/$defs/Comparison"
+        },
+        "abstention_threshold": {
+          "title": "Abstention Threshold",
+          "type": "number"
+        },
+        "tabicl_version": {
+          "title": "Tabicl Version",
+          "type": "string"
+        },
+        "checkpoint_sha256": {
+          "title": "Checkpoint Sha256",
+          "type": "string"
+        },
+        "execution": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Executed"
+            },
+            {
+              "$ref": "#/$defs/NotExecuted"
+            }
+          ],
+          "title": "Execution"
+        }
+      },
+      "required": [
+        "tool_name",
+        "tool_version",
+        "export_date",
+        "row_count",
+        "columns",
+        "target",
+        "classes",
+        "tree_depth",
+        "tree_leaves",
+        "in_sample",
+        "cross_fitted",
+        "rule_accuracy",
+        "teacher_accuracy",
+        "direct_same_accuracy",
+        "direct_tuned_accuracy",
+        "comparison",
+        "abstention_threshold",
+        "tabicl_version",
+        "checkpoint_sha256",
+        "execution"
+      ],
+      "title": "Certificate",
+      "type": "object"
+    },
+    "ColumnType": {
+      "description": "Source schema and the required storage types for each SQL engine.",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "source_type": {
+          "title": "Source Type",
+          "type": "string"
+        },
+        "duckdb": {
+          "title": "Duckdb",
+          "type": "string"
+        },
+        "postgres": {
+          "title": "Postgres",
+          "type": "string"
+        },
+        "sqlite": {
+          "title": "Sqlite",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "source_type",
+        "duckdb",
+        "postgres",
+        "sqlite"
+      ],
+      "title": "ColumnType",
+      "type": "object"
+    },
+    "Comparison": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/RuleBetter"
+        },
+        {
+          "$ref": "#/$defs/OtherBetter"
+        },
+        {
+          "$ref": "#/$defs/NoDifference"
+        }
+      ]
+    },
+    "Count": {
+      "description": "Agreement among answered rows in a census, without an interval.",
+      "properties": {
+        "k": {
+          "title": "K",
+          "type": "integer"
+        },
+        "n": {
+          "title": "N",
+          "type": "integer"
+        },
+        "coverage": {
+          "$ref": "#/$defs/Coverage"
+        }
+      },
+      "required": [
+        "k",
+        "n",
+        "coverage"
+      ],
+      "title": "Count",
+      "type": "object"
+    },
+    "Coverage": {
+      "description": "Answered rows out of all eligible rows, independent of correctness.",
+      "properties": {
+        "answered": {
+          "title": "Answered",
+          "type": "integer"
+        },
+        "total": {
+          "title": "Total",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "answered",
+        "total"
+      ],
+      "title": "Coverage",
+      "type": "object"
+    },
+    "Executed": {
+      "description": "Identity measured on every source row by the shell.",
+      "properties": {
+        "engine_version": {
+          "title": "Engine Version",
+          "type": "string"
+        },
+        "identical": {
+          "title": "Identical",
+          "type": "integer"
+        },
+        "total": {
+          "title": "Total",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "engine_version",
+        "identical",
+        "total"
+      ],
+      "title": "Executed",
+      "type": "object"
+    },
+    "Feature": {
+      "description": "One tree input, retaining its source column for portable rules.",
+      "properties": {
+        "column": {
+          "title": "Column",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "numeric",
+            "datetime",
+            "categorical"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "default": "",
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "column",
+        "kind"
+      ],
+      "title": "Feature",
+      "type": "object"
+    },
+    "FeatureSpec": {
+      "description": "Ordered tree inputs; missing and unseen categories both encode as zeros.",
+      "properties": {
+        "features": {
+          "items": {
+            "$ref": "#/$defs/Feature"
+          },
+          "title": "Features",
+          "type": "array"
+        }
+      },
+      "required": [
+        "features"
+      ],
+      "title": "FeatureSpec",
+      "type": "object"
+    },
+    "Leaf": {
+      "description": "A terminal node with its unrounded purity and abstaining prediction.",
+      "properties": {
+        "node_id": {
+          "title": "Node Id",
+          "type": "integer"
+        },
+        "prediction": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Prediction"
+        },
+        "purity": {
+          "title": "Purity",
+          "type": "number"
+        },
+        "kind": {
+          "const": "leaf",
+          "default": "leaf",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "prediction",
+        "purity"
+      ],
+      "title": "Leaf",
+      "type": "object"
+    },
+    "NoDifference": {
+      "description": "No significant difference over n jointly answered evaluation rows.",
+      "properties": {
+        "n": {
+          "title": "N",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "no_difference",
+          "default": "no_difference",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "n"
+      ],
+      "title": "NoDifference",
+      "type": "object"
+    },
+    "NotExecuted": {
+      "description": "An explicit reason that execution identity has not been checked.",
+      "properties": {
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reason"
+      ],
+      "title": "NotExecuted",
+      "type": "object"
+    },
+    "OtherBetter": {
+      "description": "Significant paired evidence in favour of the comparison tree.",
+      "properties": {
+        "p": {
+          "title": "P",
+          "type": "number"
+        },
+        "kind": {
+          "const": "other_better",
+          "default": "other_better",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "OtherBetter",
+      "type": "object"
+    },
+    "Rate": {
+      "description": "Agreement among answered rows with a 95% interval and coverage.",
+      "properties": {
+        "k": {
+          "title": "K",
+          "type": "integer"
+        },
+        "n": {
+          "title": "N",
+          "type": "integer"
+        },
+        "lo": {
+          "title": "Lo",
+          "type": "number"
+        },
+        "hi": {
+          "title": "Hi",
+          "type": "number"
+        },
+        "coverage": {
+          "$ref": "#/$defs/Coverage"
+        }
+      },
+      "required": [
+        "k",
+        "n",
+        "lo",
+        "hi",
+        "coverage"
+      ],
+      "title": "Rate",
+      "type": "object"
+    },
+    "RuleBetter": {
+      "description": "Significant paired evidence in favour of the distilled rule.",
+      "properties": {
+        "p": {
+          "title": "P",
+          "type": "number"
+        },
+        "kind": {
+          "const": "rule_better",
+          "default": "rule_better",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "RuleBetter",
+      "type": "object"
+    },
+    "Split": {
+      "description": "A split evaluated after preprocessing and float32 input conversion.",
+      "properties": {
+        "node_id": {
+          "title": "Node Id",
+          "type": "integer"
+        },
+        "feature_index": {
+          "title": "Feature Index",
+          "type": "integer"
+        },
+        "threshold": {
+          "title": "Threshold",
+          "type": "number"
+        },
+        "missing_go_to_left": {
+          "title": "Missing Go To Left",
+          "type": "boolean"
+        },
+        "left": {
+          "title": "Left",
+          "type": "integer"
+        },
+        "right": {
+          "title": "Right",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "split",
+          "default": "split",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node_id",
+        "feature_index",
+        "threshold",
+        "missing_go_to_left",
+        "left",
+        "right"
+      ],
+      "title": "Split",
+      "type": "object"
+    },
+    "Tree": {
+      "description": "Root node zero; child ids address the node array.",
+      "properties": {
+        "nodes": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Leaf"
+              },
+              {
+                "$ref": "#/$defs/Split"
+              }
+            ]
+          },
+          "title": "Nodes",
+          "type": "array"
+        },
+        "classes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Classes",
+          "type": "array"
+        },
+        "input_dtype": {
+          "const": "float32",
+          "default": "float32",
+          "title": "Input Dtype",
+          "type": "string"
+        }
+      },
+      "required": [
+        "nodes",
+        "classes"
+      ],
+      "title": "Tree",
+      "type": "object"
+    },
+    "TreeSettings": {
+      "description": "Resolved training parameters, including the training-set leaf floor.",
+      "properties": {
+        "max_depth": {
+          "default": 4,
+          "title": "Max Depth",
+          "type": "integer"
+        },
+        "max_leaf_nodes": {
+          "default": 16,
+          "title": "Max Leaf Nodes",
+          "type": "integer"
+        },
+        "min_samples_leaf": {
+          "default": 5,
+          "title": "Min Samples Leaf",
+          "type": "integer"
+        }
+      },
+      "title": "TreeSettings",
+      "type": "object"
+    }
+  },
+  "description": "Versioned rule document; missing categories encode as all-zero features.",
+  "properties": {
+    "tree": {
+      "$ref": "#/$defs/Tree"
+    },
+    "preprocessing": {
+      "$ref": "#/$defs/FeatureSpec"
+    },
+    "settings": {
+      "$ref": "#/$defs/TreeSettings"
+    },
+    "abstention_threshold": {
+      "title": "Abstention Threshold",
+      "type": "number"
+    },
+    "certificate": {
+      "$ref": "#/$defs/Certificate"
+    },
+    "schema_sha256": {
+      "title": "Schema Sha256",
+      "type": "string"
+    },
+    "format_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Format Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "tree",
+    "preprocessing",
+    "settings",
+    "abstention_threshold",
+    "certificate",
+    "schema_sha256"
+  ],
+  "title": "Export",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

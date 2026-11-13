@@ -1,0 +1,15 @@
+$ rowsetta --help
+usage: rowsetta [-h] {open,demo,export,doctor} ...
+
+Rowsetta: local tabular labelling and rule export.
+
+positional arguments:
+  {open,demo,export,doctor}
+    open                Label a local CSV in the browser app
+    demo                Label a bundled dataset in the browser app
+    export              Refit a saved session and print its rule
+    doctor              Check the model runtime and checkpoint
+
+options:
+  -h, --help            show this help message and exit
+[exit 0]
