@@ -153,6 +153,7 @@ select {
   border-color: transparent;
   font-weight: 500;
   padding-inline: 0.4rem;
+  text-decoration: none;
 }
 
 .appbar .pill-button {
@@ -557,6 +558,13 @@ progress:indeterminate {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* Below this width the file facts need the room, so the mark stands alone. */
+@media (max-width: 67rem) {
+  .appbar .repo-text {
+    display: none;
+  }
 }
 
 @media (max-width: 62rem) {
