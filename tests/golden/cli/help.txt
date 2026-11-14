@@ -1,5 +1,5 @@
 $ rowsetta --help
-usage: rowsetta [-h] {open,demo,export,doctor} ...
+usage: rowsetta [-h] [--version] {open,demo,export,doctor} ...
 
 Rowsetta: local tabular labelling and rule export.
 
@@ -12,4 +12,5 @@ positional arguments:
 
 options:
   -h, --help            show this help message and exit
+  --version             show program's version number and exit
 [exit 0]

@@ -5,6 +5,7 @@ import socket
 import sys
 import webbrowser
 from argparse import ArgumentParser, ArgumentTypeError, Namespace
+from importlib.metadata import version
 from ipaddress import IPv4Address
 from pathlib import Path
 from typing import get_args
@@ -64,6 +65,7 @@ def _parser() -> ArgumentParser:
         prog="rowsetta",
         description="Rowsetta: local tabular labelling and rule export.",
     )
+    parser.add_argument("--version", action="version", version=f"%(prog)s {version('rowsetta')}")
     commands = parser.add_subparsers(dest="command")
     open_csv = commands.add_parser("open", help="Label a local CSV in the browser app")
     open_csv.add_argument("path", type=Path)
