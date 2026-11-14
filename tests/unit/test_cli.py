@@ -5,6 +5,7 @@ import socket
 import subprocess
 import sys
 from argparse import ArgumentParser, Namespace
+from importlib.metadata import version
 from pathlib import Path
 
 import pytest
@@ -63,6 +64,14 @@ def test_help_lists_the_four_commands() -> None:
 
     assert result.returncode == 0
     assert "{open,demo,export,doctor}" in result.stdout
+
+
+def test_version_reports_the_installed_package_version() -> None:
+    result = run_cli("--version")
+
+    assert result.returncode == 0
+    assert result.stdout == f"rowsetta {version('rowsetta')}\n"
+    assert result.stderr == ""
 
 
 def test_unknown_option_fails_with_usage() -> None:

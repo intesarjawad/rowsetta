@@ -4,6 +4,10 @@ All notable changes are documented here following Keep a Changelog.
 
 ## [Unreleased]
 
+### Added
+
+- `rowsetta --version` prints the installed package version.
+
 ## [0.1.0] - Unreleased
 
 ### Changed
