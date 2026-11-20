@@ -50,7 +50,7 @@ dev = [
   "pre-commit==4.7.0",
   "pandas-stubs==3.1.0.261029",
 ]
-bench = ["tabpfn==9.2.0", "orbital==0.6.0"]
+bench = ["tabpfn==10.1.0", "orbital==0.6.0"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/rowsetta"]
