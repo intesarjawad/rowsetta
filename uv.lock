@@ -2264,7 +2264,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 bench = [
     { name = "orbital", specifier = "==0.6.0" },
-    { name = "tabpfn", specifier = "==9.2.0" },
+    { name = "tabpfn", specifier = "==10.1.0" },
 ]
 dev = [
     { name = "dbt-core", specifier = "==1.12.6" },
@@ -2654,7 +2654,7 @@ wheels = [
 
 [[package]]
 name = "tabpfn"
-version = "9.2.0"
+version = "10.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "einops" },
@@ -2677,9 +2677,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b0/03/1b48e093811877c651f731ac64e36a71b3ac44ec5c5c67a395422a6cbfed/tabpfn-9.2.0.tar.gz", hash = "sha256:e7fb2c6293ffef664c69838eb4cb215c79c85a0c0bd449fdf22489045d32b9eb", size = 937644, upload-time = "2026-10-12T15:12:56.56Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e3/b9/23bac4e737c99bb69c48585f359b8389827ae9824bd2317ebd350e3a2b4a/tabpfn-10.1.0.tar.gz", hash = "sha256:a2c37d4d4388c5ec5559513df0b4a0d053f03867de04aceb4a87f1d4fa850feb", size = 1004128, upload-time = "2026-11-17T03:24:02.565Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ac/a7/5c403c9fec9f726c91eaeaebaa8905530813ab58cb134a043c4b17afbd6a/tabpfn-9.2.0-py3-none-any.whl", hash = "sha256:bf8edb860cf490ab021d0ba6e91a9798f1b549bdb220066599661c8fc6d6089f", size = 850035, upload-time = "2026-10-12T15:12:54.671Z" },
+    { url = "https://files.pythonhosted.org/packages/c0/59/29226cf0d1ce063182b2c92139d337fced5267804b8904201c1e686d12a5/tabpfn-10.1.0-py3-none-any.whl", hash = "sha256:f4ff3564d2719b26a48ffb65bf3becb99596f4ee31e020251af0df55770f1e75", size = 898632, upload-time = "2026-11-17T03:24:01.004Z" },
 ]
 
 [[package]]
