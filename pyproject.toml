@@ -38,13 +38,13 @@ torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux' or sys_platf
 
 [dependency-groups]
 dev = [
-  "ruff==0.17.4",
+  "ruff==0.17.6",
   "pyright==1.1.414",
   "pytest==9.2.0",
-  "hypothesis==6.170.15",
+  "hypothesis==6.170.17",
   "httpx==0.28.1",
-  "psycopg[binary]==3.3.8",
-  "dbt-core==1.12.6",
+  "psycopg[binary]==3.3.9",
+  "dbt-core==1.12.7",
   "dbt-duckdb==1.11.1",
   "fonttools==4.68.0",
   "pre-commit==4.7.0",
